@@ -1,0 +1,17 @@
+{
+    "manifest_version": 3,
+    "name": "ATB - Auto Benedu",
+    "description": "한국디지털미디어고등학교 베네듀 자동 풀이",
+    "version": "1.0",
+    "content_scripts": [
+        {
+            "matches": ["https://benedu.co.kr/StudentStudy/*"],
+            "js": ["index.js"]
+        }
+    ],
+    "icons": {
+        "16": "icon.png",
+        "48": "icon.png",
+        "128": "icon.png"
+    }
+}
