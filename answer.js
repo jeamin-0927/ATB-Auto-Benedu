@@ -22,7 +22,6 @@ const setAnswer = data => {
         }
         else{
             let bg = document.querySelector(`#Answer > tbody > tr:nth-child(${i + 1}) > td:nth-child(2) > input`);
-            //console.log(i);
             bg.value = answer[i];
         }
         //console.log(e, e.childElementCount);
