@@ -26,10 +26,14 @@ const setAnswer = data => {
         }
         //console.log(e, e.childElementCount);
     }
-
+    console.log(jumsujak, autoPush);
     setTimeout(() => {
-        //document.querySelector("#main-container > div.main-content > div > div.page-content > div > div > div.TestArea > div.AnswerArea > div.AnswerOptions > div:nth-child(2) > div.AnswerSubmit > a").click();
-    }, (waitTime + 2) * 1000);
+        console.log('time');
+        console.log(jumsujak, autoPush);
+        if(autoPush){
+            document.querySelector("#main-container > div.main-content > div > div.page-content > div > div > div.TestArea > div.AnswerArea > div.AnswerOptions > div:nth-child(2) > div.AnswerSubmit > a").click();
+        }
+    }, waitTime * 1000 + 2000);
 }
 const main = url => {
     url = url.split('?')[1].split('&');
@@ -43,9 +47,7 @@ const main = url => {
         "accept-language": "ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7",
         "beneduajax": "true",
         "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
-        "sec-ch-ua": "\".Not/A)Brand\";v=\"99\", \"Google Chrome\";v=\"103\", \"Chromium\";v=\"103\"",
         "sec-ch-ua-mobile": "?0",
-        "sec-ch-ua-platform": "\"macOS\"",
         "sec-fetch-dest": "empty",
         "sec-fetch-mode": "cors",
         "sec-fetch-site": "same-origin",
@@ -69,11 +71,15 @@ const isTesk = () => {
     let url = location.href.split('/')[4];
     return url.substr(0, 8) == 'TakeTest' ? true : false;
 }
-
+const isResult = () => {
+    let url = location.href.split('/')[4];
+    return url.substr(0, 10) == 'TestResult' ? true : false;
+}
 
 let url = location.href.split('/')[4];
 if(isTesk()) main(url);
 
-
-
-
+setTimeout(() => {
+    console.log(isResult(), jumsujak)
+    if(isResult() && jumsujak) location.href = 'https://benedu.co.kr/StudentStudy/SearchQuestion';
+}, 1000);

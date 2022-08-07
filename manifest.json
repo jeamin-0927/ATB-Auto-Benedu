@@ -2,11 +2,19 @@
     "manifest_version": 3,
     "name": "ATB - Auto Benedu",
     "description": "한국디지털미디어고등학교 베네듀 자동 풀이",
-    "version": "1.1",
+    "version": "2.0",
     "content_scripts": [
         {
             "matches": ["https://benedu.co.kr/StudentStudy/*"],
             "js": ["answer.js"]
+        },
+        {
+            "matches": ["https://benedu.co.kr/*"],
+            "js": ["/popup/js/index.js"]
+        },
+        {
+            "matches": ["https://benedu.co.kr/StudentStudy/SearchQuestion"],
+            "js": ["makeTest.js"]
         }
     ],
     "icons": {
@@ -23,7 +31,7 @@
         "default_popup": "/popup/index.html",
         "default_title": "ATB - Auto Benedu"
     },
-    "background": {
-        "service_worker": "background.js"
-    }
+    "permissions": [
+        "storage"
+    ]
 }
