@@ -5,16 +5,20 @@
     "version": "2.0",
     "content_scripts": [
         {
-            "matches": ["https://benedu.co.kr/StudentStudy/*"],
-            "js": ["answer.js"]
-        },
-        {
-            "matches": ["https://benedu.co.kr/*"],
-            "js": ["/popup/js/index.js"]
+            "matches": ["https://benedu.co.kr/StudentHome"],
+            "js": ["src/StudentHome.js"]
         },
         {
             "matches": ["https://benedu.co.kr/StudentStudy/SearchQuestion"],
-            "js": ["makeTest.js"]
+            "js": ["src/SearchQuestion.js"]
+        },
+        {
+            "matches": ["https://benedu.co.kr/StudentStudy/TakeTest*"],
+            "js": ["src/TakeTest.js"]
+        },
+        {
+            "matches": ["https://benedu.co.kr/StudentStudy/TestResult*"],
+            "js": ["src/TestResult.js"]
         }
     ],
     "icons": {
@@ -28,7 +32,6 @@
             "24": "icon.png",
             "32": "icon.png"
         },
-        "default_popup": "/popup/index.html",
         "default_title": "ATB - Auto Benedu"
     },
     "permissions": [

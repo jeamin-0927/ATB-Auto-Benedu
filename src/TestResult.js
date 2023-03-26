@@ -1,0 +1,1 @@
+location.replace("https://benedu.co.kr/StudentStudy/SearchQuestion")
